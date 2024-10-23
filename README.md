@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+                                     Build an email client app like Outlook.
 
-## Getting Started
+Following APIs are provided:
+# Get all emails
+# Get email body for a particular email 
 
-First, run the development server:
+*  Sample UI Email List View (http://bit.ly/2VtQGcb)
+*  Email body View (http://bit.ly/2I5DemI) 
+*  Color codes (http://bit.ly/2wa2pCa)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+        Product Features
+The app features an email list page. This page shows the list of emails sent to a user.
+Clicking on any email item in the list should split the screen into a master-slave (left-right) screen type where the master (left) shows the email list (with the selected email item) while the slave (right) shows the body of the email. The body of the email is not known ahead of time and should be loaded only when the email item is clicked.
+The app should allow any particular email item to be marked as “favorite”, it should be done via clicking on an email item and then clicking the “Mark as Favorite” button in the email body section.
+The app should show read and unread mails in different CSS styles to distinguish between the same.
+Allow filtering emails by “favorites”, “read” and “unread”.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ Must Haves:
+    -    Render all emails page using the API
+    -    Each email should have from, subject, short description, date and time.
+    -    The avatar (circular logo) in each email item should be populated with the first character of first name (sent in API response).
+    -    Upon clicking a particular email, render the body section for it using the API. Email body has 3 sections:
+    -    Email subject
+    -    Email body
+    -    Email date and time
+    -    Allow email to be marked favorite in the body section of the email
+    -    Filter emails marked as favorite, read and unread
+    -    UI should be as close to the mocks provided
+    -    The date should be rendered in format dd/MM/yyyy hh:mm a
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Good to Have:
+Email list could be long and hence is paginated. There are 2 pages i.e. page 1 and page 2 which can be accessed via the APIs provided below.
+Persist favorited and read emails across sessions using persistent storage technologies. 
 
-## Deploy on Vercel
+Points to consider:
+Focus on the modularity of code and design of the solution. Keep performance of the application in mind.
+Please refrain from using any plugins However, you can use tooling such as webpack, grunt, gulp, etc.
+The final solution should work without errors
+Do not completely ignore the layout / visual design. A minimalist visual design / layout must be followed, it is also important for us to evaluate your CSS knowledge.
+Do not create a div soup instead use semantic HTML tags.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+You will be evaluated based on:
+Correctness and completeness of the solution.
+Code design and quality.
+Visual aesthetics (the UI should be as close as possible to the given design).
+Technology choices (e.g. ES 6/7 over ES 5 - avoid mixing of ES 5/6/7).
+Your understanding of the problem statement.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+API Sources
+Emails List APIs:
+https://flipkart-email-mock.now.sh/ (Not Paginated)
+
+https://flipkart-email-mock.now.sh/?page=<pageNumber> (Paginated) e.g. https://flipkart-email-mock.now.sh/?page=1 and https://flipkart-email-mock.now.sh/?page=2
+Email body API:
+https://flipkart-email-mock.now.sh/?id=<email-item-id> e.g. https://flipkart-email-mock.now.sh/?id=3
