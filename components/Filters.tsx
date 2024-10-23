@@ -19,19 +19,22 @@ function Filters({
     { name: "Favourites", value: "favourites" },
   ];
   return (
-    <div className="w-full py-4">
-      <div className="w-max space-x-4">
-        {filters.map((filter) => (
-          <Button
-            key={filter.value}
-            onClick={() => handleFilterChange(filter.value)}
-            className={`py-[1px] h-8 px-4 bg-transparent text-black hover:bg-[#e1e4ea] shadow-none font-medium rounded-full ${
-              currentFilter === filter.value && "bg-[#e1e4ea]"
-            }`}
-          >
-            {filter.name}
-          </Button>
-        ))}
+    <div className="w-full py-3">
+      <div className="w-max flex gap-x-8 items-center">
+        <p className="font-medium">Filter By:</p>
+        <div className="space-x-4">
+          {filters.map((filter) => (
+            <Button
+              key={filter.value}
+              onClick={() => handleFilterChange(filter.value)}
+              className={`py-[1px] h-8 px-4 text-[#636363] bg-transparent hover:bg-[#e1e4ea] shadow-none font-medium rounded-full ${
+                currentFilter === filter.value && "bg-[#e1e4ea]"
+              }`}
+            >
+              {filter.name}
+            </Button>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -1,3 +1,12 @@
+#e54065 accent
+#f4f4f9 background
+#cfd2dc  border
+#636363 text
+#e1e4ea filer button
+#f2f2f2 read background                                     
+                                     
+
+
                                      Build an email client app like Outlook.
 
 Following APIs are provided:
