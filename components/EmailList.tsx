@@ -56,7 +56,6 @@ function EmailList({
                 <div className="rounded-full flex items-center justify-center p-3 w-10 h-10 bg-[#e54065] text-white capitalize">
                   {email.from.name[0]}
                 </div>
-                <div className="text-center">{email.id}</div>
               </section>
               <section className="">
                 <div className="flex items-center gap-x-1">
