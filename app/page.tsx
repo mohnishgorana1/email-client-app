@@ -68,39 +68,33 @@ export default function Home() {
     });
   };
 
-  // Fetch emails with pagination
-  const fetchEmails = async (page: number) => {
-    try {
-      setLoading(true);
-      const response = await axios.get(
-        `https://flipkart-email-mock.now.sh/?page=${page}`
-      );
-      const emails = response?.data?.list.map((email) => ({
-        ...email,
-        isRead: false,
-        isFavourite: false,
-      }));
-      setEmailList(emails);
-      saveEmailListToLocalStorage(emails);
-    } catch (error) {
-      console.log("Failed to fetch emails.", error);
-      setError("Failed to fetch emails. Please try again later.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    console.log("Email list", emailList);
-  }, [emailList, setEmailList]);
-
-
   useEffect(() => {
     const storedEmails = localStorage.getItem("emailList");
     if (storedEmails) {
       setEmailList(JSON.parse(storedEmails));
       setLoading(false);
     } else {
+      // Fetch emails with pagination
+      const fetchEmails = async (page: number) => {
+        try {
+          setLoading(true);
+          const response = await axios.get(
+            `https://flipkart-email-mock.now.sh/?page=${page}`
+          );
+          const emails = response?.data?.list.map((email) => ({
+            ...email,
+            isRead: false,
+            isFavourite: false,
+          }));
+          setEmailList(emails);
+          saveEmailListToLocalStorage(emails);
+        } catch (error) {
+          console.log("Failed to fetch emails.", error);
+          setError("Failed to fetch emails. Please try again later.");
+        } finally {
+          setLoading(false);
+        }
+      };
       fetchEmails(currentPage);
     }
   }, [currentPage]);
