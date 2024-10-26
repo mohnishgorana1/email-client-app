@@ -113,7 +113,7 @@ export default function Home() {
         />
       </section>
       <section className="grid grid-cols-3 gap-x-4">
-        <div className={`${currentEmail ? "col-span-1" : "col-span-3"}  `}>
+        <div className={`${(currentEmail) ? "hidden md:flex col-span-1" : "col-span-3"}  `}>
           <EmailList
             currentFilter={currentFilter}
             setCurrentFilter={setCurrentFilter}
@@ -126,10 +126,11 @@ export default function Home() {
           />
         </div>
         {currentEmail && (
-          <div className="col-span-2 border">
+          <div className="col-span-3 md:col-span-2 border">
             <EmailDetails
               currentEmail={currentEmail}
               handleEmailFavourite={() => handleEmailFavourite(currentEmail)}
+              setCurrentEmail={setCurrentEmail}
             />
           </div>
         )}

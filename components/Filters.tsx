@@ -19,10 +19,10 @@ function Filters({
     { name: "Favourites", value: "favourites" },
   ];
   return (
-    <div className="w-full py-3">
-      <div className="w-max flex gap-x-8 items-center font-semibold">
-        <p className="">Filter By:</p>
-        <div className="space-x-4">
+    <div className="w-full py-3 border">
+      <div className="flex flex-col sm:flex-row gap-y-5 gap-x-8 sm:items-center font-semibold">
+        <p className="ml-4 sm:ml-0">Filter By:</p>
+        <div className="space-x-4 flex items-center justify-center">
           {filters.map((filter) => (
             <Button
               key={filter.value}

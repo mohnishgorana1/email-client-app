@@ -48,7 +48,7 @@ function EmailList({
         {filteredEmails.length > 0 &&
           filteredEmails.map((email, idx) => (
             <div
-              className="cursor-pointer hover:shadow-sm hover:shadow-[#c3c1c1] border border-[#cfd2dc] px-4 py-2 rounded-lg flex gap-x-4 items-start"
+              className="cursor-pointer hover:shadow-sm hover:shadow-[#c3c1c1] border border-[#cfd2dc] px-4 py-2 rounded-lg flex gap-x-4 items-start line-clamp-2"
               key={idx}
               onClick={() => fetchEmailDetails(email)}
             >
@@ -61,18 +61,18 @@ function EmailList({
               <section className="">
                 <div className="flex items-center gap-x-1">
                   <span>From:</span>
-                  <span className="font-bold">{email.from.email}</span>
+                  <span className="font-bold text-sm md:text-lg">{email.from.email}</span>
                 </div>
                 <div className="flex items-center gap-x-1">
                   <span>Subject:</span>
-                  <span className="font-bold">{email.subject}</span>
+                  <span className="font-bold text-sm md:text-lg">{email.subject}</span>
                 </div>
                 <div className="flex items-center gap-x-3">
-                  <p>{email.short_description}</p>
+                  <p className="text-sm md:text-lg">{email.short_description}</p>
                 </div>
                 <div className="flex items-center justify-between gap-x-3">
-                  <span>{formatDate(email.date)}</span>
-                  <span className="text-[#e54065] font-semibold text-sm">
+                  <span className="text-sm md:text-lg">{formatDate(email.date)}</span>
+                  <span className="text-[#e54065] font-semibold text-sm md:text-lg">
                     {email.isFavourite && "Favourite"}
                   </span>
                 </div>
